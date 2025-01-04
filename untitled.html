@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Watch Ads and Earn Rewards</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0-alpha1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f6f9;
+            padding: 30px;
+        }
+        .container {
+            background-color: #fff;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        h1 {
+            font-size: 2rem;
+            color: #333;
+            margin-bottom: 25px;
+            font-weight: 600;
+        }
+        .message {
+            background-color: #e8f4f8;
+            color: #0a6f94;
+            padding: 15px;
+            margin-bottom: 30px;
+            font-size: 1.4rem;
+            border-left: 5px solid #0a6f94;
+            font-weight: bold;
+        }
+        .ad-counter {
+            font-size: 1.6rem;
+            color: #007bff;
+            margin: 20px 0;
+            font-weight: 600;
+        }
+        .ad-placeholder {
+            background-color: #f8f9fa;
+            border: 2px dashed #ccc;
+            height: 200px;
+            margin: 20px 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #aaa;
+        }
+        .btn {
+            font-size: 1.2rem;
+            font-weight: bold;
+            padding: 12px;
+            border-radius: 25px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+        }
+        .btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        .btn-primary {
+            background-color: #007bff;
+            color: white;
+        }
+        .btn-primary:hover {
+            background-color: #0056b3;
+        }
+        .btn-success {
+            background-color: #28a745;
+            color: white;
+        }
+        .btn-success:hover {
+            background-color: #218838;
+        }
+        .btn-telegram {
+            background-color: #0088cc;
+            color: white;
+        }
+        .btn-telegram:hover {
+            background-color: #006fa0;
+        }
+        .btn-youtube {
+            background-color: #ff0000;
+            color: white;
+        }
+        .btn-youtube:hover {
+            background-color: #cc0000;
+        }
+        .subscription-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 30px;
+        }
+        .subscription-buttons .btn {
+            width: 145px;
+            margin: 10px;
+        }
+        .subscription-buttons i {
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+        }
+        .button-container {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            margin-top: 40px;
+        }
+        .button-container .btn {
+            width: 100%;
+            font-size: 1.5rem;
+            padding: 15px;
+        }
+        @media (max-width: 768px) {
+            .subscription-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            .subscription-buttons .btn {
+                width: 100%;
+                margin: 10px 0;
+            }
+        }
+        .powered-by {
+            margin-top: 30px;
+            font-size: 1rem;
+            color: #333;
+            text-align: center;
+        }
+        .powered-by a {
+            color: #0088cc;
+            font-weight: bold;
+        }
+        .powered-by a:hover {
+            text-decoration: none;
+            color: #006fa0;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Watch Ads and Earn Rewards</h1>
+
+    <!-- Motivational Message Section -->
+    <div class="message">
+        <i class="fas fa-lightbulb"></i>
+        <p>আপনি কি জানেন? আপনি যখন কাজ শুরু করবেন, তখন আপনার সাফল্য কখনোই থেমে থাকবে না! 
+        আপনার সময় এবং দক্ষতা দিয়ে ইনকাম করুন। আজই শুরু করুন!</p>
+    </div>
+
+    <!-- Ad Counter Section -->
+    <div class="ad-counter">
+        <i class="fas fa-eye"></i> Ads Watched: <span id="adCount">0</span>
+    </div>
+
+    <!-- Buttons Section -->
+    <div class="button-container">
+        <button id="startAds" class="btn btn-primary">
+            <i class="fas fa-play"></i> Start Watching Ads Automatically
+        </button>
+        <button id="showSingleAd" class="btn btn-success">
+            <i class="fas fa-ad"></i> Show Single Ad
+        </button>
+        <button id="autoAds" class="btn btn-warning">
+            <i class="fas fa-stop"></i> Ads চলা বন্ধ করুন
+        </button>
+    </div>
+
+    <!-- Ad Display Area -->
+    <div class="ad-placeholder" id="adContainer">
+        <p>Ad will display here...</p>
+    </div>
+
+    <!-- Subscription Buttons Section -->
+    <div class="subscription-buttons">
+        <button class="btn btn-telegram" onclick="window.open('https://t.me/EarningZone2026', '_blank')">
+            <i class="fab fa-telegram-plane"></i> Subscribe
+        </button>
+        <button class="btn btn-youtube" onclick="window.open('https://youtube.com/@earningzone100', '_blank')">
+            <i class="fab fa-youtube"></i> Subscribe
+        </button>
+    </div>
+
+    <!-- Powered by Section -->
+    <div class="powered-by">
+        <p>Powered by <a href="https://t.me/EarningZone2026" target="_blank">EarningZone</a></p>
+    </div>
+</div>
+
+<!-- Ad Script -->
+<script src='//niphaumeenses.net/vignette.min.js' data-zone='8703427' data-sdk='show_8703427'></script>
+
+<script>
+    let adInterval;
+    let adCount = localStorage.getItem('adCount') ? parseInt(localStorage.getItem('adCount')) : 0; // Load saved count or default to 0
+    const adContainer = document.getElementById('adContainer');
+    const adCountDisplay = document.getElementById('adCount');
+
+    // Initialize the counters on page load
+    adCountDisplay.textContent = adCount;
+
+    // Function to update the ad counter
+    function updateAdCount() {
+        adCount++;
+        adCountDisplay.textContent = adCount;
+        localStorage.setItem('adCount', adCount); // Save the count to localStorage
+    }
+
+    // Function to load and show ads
+    function showAd(message) {
+        adContainer.innerHTML = "<p>Loading Ad...</p>";
+        try {
+            // Ensure the show_8703427 function is available
+            if (typeof show_8703427 === "function") {
+                show_8703427().then(() => {
+                    adContainer.innerHTML = `<p>${message}</p>`;
+                    updateAdCount(); // Increment ad count when an ad is successfully shown
+                    setTimeout(() => {
+                        adContainer.innerHTML = "<p>Ad finished!</p>"; // Auto close ad after 20 seconds
+                    }, 20000); // 20 seconds
+                }).catch((err) => {
+                    adContainer.innerHTML = "<p>Failed to load ad. Please try again.</p>";
+                    console.error("Ad loading failed: ", err);
+                });
+            } else {
+                adContainer.innerHTML = "<p>Ad script is not loaded correctly.</p>";
+            }
+        } catch (err) {
+            adContainer.innerHTML = "<p>Error loading ad.</p>";
+            console.error("Error: ", err);
+        }
+    }
+
+    // Start the ad auto-play system
+    document.getElementById('startAds').addEventListener('click', function () {
+        showAd("Ad is running..."); // Show the first ad immediately
+        adInterval = setInterval(() => showAd("Ad is running..."), 20000); // Show ads every 20 seconds
+        alert("Ad auto-play started. Ads will show every 20 seconds.");
+    });
+
+    // Show a single ad on button click
+    document.getElementById('showSingleAd').addEventListener('click', function () {
+        showAd("Single ad is running...");
+    });
+
+    // Handle Auto Ads toggle on button click
+    document.getElementById('autoAds').addEventListener('click', function () {
+        if (adInterval) {
+            clearInterval(adInterval);
+            adInterval = null;
+            alert("Auto Ads stopped.");
+        } else {
+            showAd("Auto Ads started...");
+            adInterval = setInterval(() => showAd("Auto Ads are running..."), 20000); // Restart Auto Ads
+            alert("Auto Ads started. Ads will show every 20 seconds.");
+        }
+    });
+</script>
+
+</body>
+</html>
